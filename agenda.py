@@ -42,3 +42,14 @@ def update_contact(name,tel,email,end):
 def delete_contact(name):
     SCHEDULE.pop(name)
     print(f">>>>>> contato {name} removido")
+
+
+def show_menu():
+    print()
+    print("1 -> criar contato")
+    print("2 -> buscar contato")
+    print("3 -> ver todos os contatos")
+    print("4 -> remover contato")
+    print("5 -> atualizar contato")
+    print("6 -> sair da agenda")
+    print()
