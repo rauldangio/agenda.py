@@ -22,6 +22,8 @@ agenda['samanta'] = {
         "endereco": "av. Pisca"
 }
 
+agenda.pop("joao")
+
 for contato in agenda:
     print(f"{contato}: ")
     for chaves in agenda[contato]:
