@@ -29,4 +29,12 @@ def create_contact():
     }
     print("\ncontato criado\n")
 
-read_contact("pedrinho")
+
+def update_contact(name,tel,email,end):
+    SCHEDULE[name] = {
+        "Telefone": tel,
+        "Email": email,
+        "Endereco": end
+    }
+    print(f">>>>>> contato {name} foi atualizado!")
+
