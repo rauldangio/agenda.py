@@ -80,6 +80,7 @@ def show_menu():
     print("4 -> remover contato")
     print("5 -> atualizar contato")
     print("6 -> exportar em csv")
+    print("7 -> carregar agenda")
     print("0 -> sair da agenda")
     print('-'*40)
 
@@ -96,6 +97,22 @@ def export_schedule():
         print(error)
 
 
+def load_schedule(path):
+    print('-'*40)
+    try:
+        with open(path,'r') as arq:
+            contact_info = arq.readlines()
+            for contact in contact_info:
+                info = contact.strip().split(',')
+                SCHEDULE[info[0]] = {
+                    "Telefone": info[1],
+                    "Email": info[2],
+                    "Endereco": info[3]
+                }
+        print(">>>>>> Agenda carregada")
+        print("-"*40)
+    except FileNotFoundError:
+        print("arquivo não existe")
 
 while True:
     show_menu()
@@ -114,6 +131,9 @@ while True:
             update_contact(contact)
         elif op == 6:
             export_schedule()
+        elif op == 7:
+            path = input("caminho do arquivo: ")
+            load_schedule(path)
         elif op == 0:
             break
         else:
