@@ -15,3 +15,9 @@ agenda = {
         "endereco": "av. 3"
     }
 }
+
+agenda['samanta'] = {
+        "tel": "51234-3123",
+        "email": "samanta@email.com",
+        "endereco": "av. Pisca"
+}
