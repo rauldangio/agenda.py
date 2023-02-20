@@ -38,3 +38,7 @@ def update_contact(name,tel,email,end):
     }
     print(f">>>>>> contato {name} foi atualizado!")
 
+
+def delete_contact(name):
+    SCHEDULE.pop(name)
+    print(f">>>>>> contato {name} removido")
