@@ -21,3 +21,8 @@ agenda['samanta'] = {
         "email": "samanta@email.com",
         "endereco": "av. Pisca"
 }
+
+for contato in agenda:
+    print(f"{contato}: ")
+    for chaves in agenda[contato]:
+        print(f"\t {chaves}: {agenda[contato][chaves]}")
