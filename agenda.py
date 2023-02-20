@@ -8,15 +8,16 @@ SCHEDULE = {
 
 
 def read_contact(name):
-    print(name+":")
+    print('-'*30)
+    print(name.upper()+":")
     for info in SCHEDULE[name]:
         print(f"\t{info}: {SCHEDULE[name][info]}")
+    print('-'*30)
+
 
 def show_all_schedule():
     for contact in SCHEDULE:
-        print(contact.upper())
-        for info in SCHEDULE[contact]:
-            print(f"\t{info}: {SCHEDULE[contact][info]}")        
+        read_contact(contact)    
 
 
 def create_contact():
@@ -28,4 +29,4 @@ def create_contact():
     }
     print("\ncontato criado\n")
 
-show_all_schedule()
+read_contact("pedrinho")
