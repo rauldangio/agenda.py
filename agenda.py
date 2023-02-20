@@ -1,9 +1,5 @@
 SCHEDULE = {
-    "pedrinho":{
-        "Telefone": "93132-4123",
-        "Email": "pedrinho@solyd.com",
-        "Endereço": "Não tem"
-    }
+   
 }
 
 
@@ -20,8 +16,12 @@ def search_contact(name):
 
 
 def show_all_schedule():
-    for contact in SCHEDULE:
-        search_contact(contact)    
+    print('-'*40)
+    if SCHEDULE:
+        for contact in SCHEDULE:
+            search_contact(contact)    
+    else:
+        print('>>>>>> Agenda vazia')
 
 
 def create_contact():
@@ -71,6 +71,7 @@ def delete_contact(name):
     except KeyError:
         print(">>>>>> esse contato não existe!")
 
+
 def show_menu():
     print('-'*40)
     print("1 -> criar contato")
@@ -78,8 +79,22 @@ def show_menu():
     print("3 -> ver todos os contatos")
     print("4 -> remover contato")
     print("5 -> atualizar contato")
-    print("6 -> sair da agenda")
+    print("6 -> exportar em csv")
+    print("0 -> sair da agenda")
     print('-'*40)
+
+
+def export_schedule():
+    try:
+        with open('agenda.csv','w') as arq:
+            for contato in SCHEDULE:
+                tel = SCHEDULE[contato]["Telefone"]
+                email = SCHEDULE[contato]["Email"]
+                end = SCHEDULE[contato]["Endereco"]
+                arq.write(f"{contato},{tel},{email},{end}\n")
+    except Exception as error:
+        print(error)
+
 
 
 while True:
@@ -98,6 +113,8 @@ while True:
             contact = input("contato: ")
             update_contact(contact)
         elif op == 6:
+            export_schedule()
+        elif op == 0:
             break
         else:
             print('>>>>>> opção invalida!')
